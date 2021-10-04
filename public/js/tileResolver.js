@@ -7,17 +7,21 @@ export default class TileResolver{
 		return Math.floor(pos/this.tileSize);
 	}
 
-	getIndex(indexX,indexY){
+	getByIndex(indexX,indexY){
 		const tile = this.matrix.get(indexX,indexY);
 		if(tile){
+			const y1 = indexY * this.tileSize;
+			const y2 = y1+this.tileSize;
 			return {
 				tile,
+				y1,
+				y2,
 			};
 		}
 	}
 
 	matchByPosition(posX, posY){
-		return this.getIndex(
+		return this.getByIndex(
 			this.toIndex(posX),
 			this.toIndex(posY)
 		);

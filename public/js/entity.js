@@ -13,6 +13,8 @@ export class entity{
 	constructor(){
 		this.pos = new vector(0,0);
 		this.vel = new vector(0,0);
+		this.size = new vector(0,0);
+
 		this.traits = [];
 	}
 
