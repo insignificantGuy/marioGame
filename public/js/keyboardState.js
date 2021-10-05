@@ -9,13 +9,13 @@ export default class keyboardState{
 		this.keyMap = new Map();
 	}
 
-	addMapping(keyCode, callback){
-		this.keyMap.set(keyCode, callback);
+	addMapping(code, callback){
+		this.keyMap.set(code, callback);
 	}
 
 	handleEvent(event){
-		const {keyCode} = event;
-		if(!this.keyMap.has(keyCode)){
+		const {code} = event;
+		if(!this.keyMap.has(code)){
 			// Return False if the KeyCode is not present in the Map
 			return ;
 		}
@@ -23,12 +23,12 @@ export default class keyboardState{
 
 		const keyState = event.type === 'keydown' ? PRESSED : RELEASED;
 
-		if(this.keyStates.get(keyCode) === keyState){
+		if(this.keyStates.get(code) === keyState){
 			return;
 		}
 
-		this.keyStates.set(keyCode, keyState);
-		this.keyMap.get(keyCode)(keyState);
+		this.keyStates.set(code, keyState);
+		this.keyMap.get(code)(keyState);
 	}
 
 	listenTo(window){

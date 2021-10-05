@@ -38,11 +38,11 @@ export function createCollisionLayer(level){
 		resolvedTiles.push({x,y});
 		return getByIndexOriginal.call(tileResolver,x,y);
 	}
-
+	
 	return function drawCollision(context){
 		context.strokeStyle = 'blue';
 		resolvedTiles.forEach(({x, y})=>{
-			console.log(x,y);
+			console.log(x);
 			context.beginPath();
 			context.rect(x*tileSize, y*tileSize, tileSize, tileSize);
 			context.stroke();
