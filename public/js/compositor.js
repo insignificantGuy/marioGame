@@ -3,9 +3,9 @@ export default class compositor{
 		this.layer = [];
 	}
 
-	draw(context){
+	draw(context,camera){
 		this.layer.forEach(layer => {
-			layer(context);
+			layer(context, camera);
 		});
 	}
 }

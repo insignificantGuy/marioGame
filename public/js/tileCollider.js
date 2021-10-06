@@ -23,7 +23,7 @@ export default class TileCollider{
 			entity.pos.y, entity.pos.y+entity.size.y);
 		
 		matches.forEach(match=>{
-			if(match.tile.name!=='ground'){
+			if(match.tile.type!=='ground'){
 				return;
 			}
 
@@ -61,7 +61,7 @@ export default class TileCollider{
 			y, y);
 		
 		matches.forEach(match=>{
-			if(match.tile.name!=='ground'){
+			if(match.tile.type!=='ground'){
 				return;
 			}
 
