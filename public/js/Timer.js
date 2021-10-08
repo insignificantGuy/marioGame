@@ -3,6 +3,9 @@ export default class Timer {
 		let lastTime=0, accumalatedTime = 0;
 		this.updateProxy = (time) =>{
 			accumalatedTime += (time-lastTime)/1000;
+			if(accumalatedTime>1){
+				accumalatedTime = 1;
+			}
 			while(accumalatedTime>deltaTime){
 				this.update(deltaTime);
 				accumalatedTime -= deltaTime;	

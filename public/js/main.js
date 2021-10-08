@@ -19,8 +19,8 @@ Promise.all([
 	mario.pos.set(64,64);
 
 	level.entities.add(mario);
-	level.comp.layer.push(createCollisionLayer(level));
-	level.comp.layer.push(createCameraLayer(camera));
+	/*level.comp.layer.push(createCollisionLayer(level));
+	level.comp.layer.push(createCameraLayer(camera));*/
 
 	const input = setupKeyboard(mario);
 
