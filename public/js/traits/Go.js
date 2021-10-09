@@ -4,19 +4,28 @@ export default class Go extends Trait{
 	constructor(){
 		super('go');
 		this.direction = 0;
-		this.speed = 6000;
+		this.accelaration = 400;
 		this.distance = 0;
 		this.heading = 0;
+		this.dragFactor = 1/5000;
+		this.decelaration = 300;
 	}
 
 	update(entity,deltaTime){
-		entity.vel.x = this.speed*this.direction*deltaTime;
+		const absX = Math.abs(entity.vel.x);
 		if(this.direction){
+			entity.vel.x += this.accelaration*this.direction*deltaTime;
 			this.heading = this.direction;
-			this.distance += Math.abs(entity.vel.x*deltaTime);
+		}
+		else if(entity.vel.x!==0){
+			const decel = Math.min(absX, this.decelaration*deltaTime);
+			entity.vel.x+= entity.vel.x > 0 ? -decel : decel;
 		}
 		else{
 			this.distance = 0;
 		}
+		this.distance += absX*deltaTime;
+		const drag = this.dragFactor * entity.vel.x * absX;
+		entity.vel.x-=drag;
 	}
 }

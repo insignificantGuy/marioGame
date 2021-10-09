@@ -17,7 +17,7 @@ export function createMario() {
 		const runAnim = createAnimation(['run-1', 'run-2', 'run-3'],10);
 		const frames = ['run-1', 'run-2', 'run-3'];
 		function marioRoute(mario){
-			if(mario.go.direction!==0){ 
+			if(mario.go.distance>0){ 
 				return runAnim(mario.go.distance);
 			}
 			return 'idle';
