@@ -15,7 +15,14 @@ export default class Go extends Trait{
 		const absX = Math.abs(entity.vel.x);
 		if(this.direction){
 			entity.vel.x += this.accelaration*this.direction*deltaTime;
-			this.heading = this.direction;
+			if(entity.jump){
+				if(entity.jump.falling===false){
+					this.heading = this.direction;
+				}
+			}
+			else{
+				this.heading = this.direction;
+			}
 		}
 		else if(entity.vel.x!==0){
 			const decel = Math.min(absX, this.decelaration*deltaTime);
