@@ -8,8 +8,11 @@ export default class level {
 		this.totalTime = 0;
 		this.comp = new compositor();
 		this.entities = new Set();
-		this.tiles = new Matrix();	
-		this.tileCollider = new TileCollider(this.tiles);
+		this.tileCollider = null;
+	}
+
+	setCollisionGrid(matrix){
+		this.tileCollider = new TileCollider(matrix);
 	}
 
 	update(deltaTime){
