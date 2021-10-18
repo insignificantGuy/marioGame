@@ -1,8 +1,11 @@
 import {vector} from './math.js';
+import BoundingBox from './boundingBox.js';
 
 export const Sides = {
 	TOP : Symbol('top'),
 	BOTTOM : Symbol('bottom'),
+	LEFT: Symbol('left'),
+	RIGHT: Symbol('right'),
 };
 
 export class Trait{
@@ -24,6 +27,9 @@ export class entity{
 		this.pos = new vector(0,0);
 		this.vel = new vector(0,0);
 		this.size = new vector(0,0);
+		this.offset = new vector(0,0);
+		this.bounds = new BoundingBox(this.pos, this.size, this.offset);
+		this.lifeTime = 0;
 
 		this.traits = [];
 	}
@@ -43,5 +49,6 @@ export class entity{
 		this.traits.forEach(trait => {
 			trait.update(this,deltaTime);
 		}); 
+		this.lifeTime += deltaTime;
 	}
 };

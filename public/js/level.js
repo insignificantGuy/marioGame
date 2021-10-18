@@ -1,6 +1,5 @@
 import compositor from './compositor.js';
-import TileCollider from './tileCollider.js';
-import {Matrix} from './math.js';
+import TileCollider from './tileCollider.js'; 
 
 export default class level {
 	constructor(){
