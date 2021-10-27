@@ -38,7 +38,7 @@ function createMarioFactory(sprites){
 
 	return function createMario(){
 		const mario = new entity();
-		mario.size.set(14,16);
+		mario.size.set(14,16); 
 
 		mario.addTrait(new Jump());
 		mario.addTrait(new Go());
